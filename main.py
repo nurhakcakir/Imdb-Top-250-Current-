@@ -11,8 +11,11 @@ film_table=film_table.find_all("tr")
 
 for film in film_table:
     film_titles=film.find_all("td",{"class":"titleColumn"})
+    film_imdb=film.find_all("td",{"class":"ratingColumn imdbRating"})
+    film_imdb1=film_imdb[0].text
     film_name=film_titles[0].text
     film_name=film_name.replace("\n","")
+    film_imdb1=film_imdb1.replace("\n","")
 
-    print(film_name)
+    print(film_name+"  Imdb: "+film_imdb1)
     print("*************************************")
